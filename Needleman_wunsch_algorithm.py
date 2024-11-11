@@ -6,16 +6,16 @@ seq2 = input("type in the seq2: ")
 nseq1 = len(seq1)
 nseq2 = len(seq2)
 
-gap = 1
+gap = 2
 match = 1
 mismatch = 1
 
 # Optimal score at each possible pair of characters.
 matrix = np.zeros((nseq1 + 2, nseq2 + 2))
 for i in range(nseq1 + 1):
-    matrix[i+1][0] = -2*(i+1)*gap
+    matrix[i+1][0] = -(i+1)*gap
 for j in range(nseq2 + 1):
-    matrix[0][j+1] = -2*(j+1)*gap
+    matrix[0][j+1] = -(j+1)*gap
 
 # Reference matrix to trace through an optimal aligment.
 P = np.zeros((nseq1 + 1, nseq2 + 1))
@@ -30,8 +30,8 @@ for i in range(nseq1):
            t[0] = matrix[i,j] + match
         else:
             t[0] = matrix[i,j] - mismatch
-        t[1] = matrix[i,j+1] - 2*gap
-        t[2] = matrix[i+1,j] - 2*gap
+        t[1] = matrix[i,j+1] - gap
+        t[2] = matrix[i+1,j] - gap
         tmax = np.max(t)
         matrix[i+1,j+1] = tmax
 # 2 is for diagonals, 3 is for top value, 4 is for left value
