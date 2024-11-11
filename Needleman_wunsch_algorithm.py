@@ -1,3 +1,4 @@
+// I will also code this in C/Cpp soon as I get time. 
 import numpy as np
 
 seq1 = input("type in the seq1: ")
