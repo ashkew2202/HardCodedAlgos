@@ -50,16 +50,16 @@ j = nseq2
 rx = []
 ry = []
 while i > 0 or j > 0:
-    if P[i,j] in [2, 5, 6, 9]:
+    if P[i,j] == 2:
         rx.append(seq1[i-1])
         ry.append(seq2[j-1])
         i -= 1
         j -= 1
-    elif P[i,j] in [3, 5, 7, 9]:
+    elif P[i,j] == 3:
         rx.append(seq1[i-1])
         ry.append('-')
         i -= 1
-    elif P[i,j] in [4, 6, 7, 9]:
+    elif P[i,j] == 4:
         rx.append('-')
         ry.append(seq2[j-1])
         j -= 1
